@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/live-schedule', function (YouTubeService $youtube) {
     // チャンネルIDは適宜差し替えてください（例: 公式のチャンネルID）
-    $channelId = 'UCT16mw3e7Lm8DZzjnRfealg';
+    $channelId = 'UCNN0n29dfU-F3DQ4YvEenuQ';
 
     $videos = $youtube->getUpcomingStreams($channelId);
 
