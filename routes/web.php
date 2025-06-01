@@ -1,18 +1,21 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
+use App\Services\YouTubeService;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
+Route::get('/youtube-upcoming-test', function (YouTubeService $youtubeService) {
+    $channelId = 'UC0Lod2RRUlxiqLfXcfhfemA';  // 確認したいチャンネルIDに置き換えてください
 
-Route::get('/', function () {
-    return view('welcome');
+    try {
+        $upcomingStreams = $youtubeService->getUpcomingStreams($channelId);
+
+        return response()->json([
+            'status' => 'success',
+            'data' => $upcomingStreams,
+        ]);
+    } catch (\Exception $e) {
+        return response()->json([
+            'status' => 'error',
+            'message' => $e->getMessage(),
+        ], 500);
+    }
 });
