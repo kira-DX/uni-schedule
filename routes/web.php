@@ -1,21 +1,13 @@
 <?php
 
 use App\Services\YouTubeService;
+use Illuminate\Support\Facades\Route;
 
-Route::get('/youtube-upcoming-test', function (YouTubeService $youtubeService) {
-    $channelId = 'UC0Lod2RRUlxiqLfXcfhfemA';  // 確認したいチャンネルIDに置き換えてください
+Route::get('/live-schedule', function (YouTubeService $youtube) {
+    // チャンネルIDは適宜差し替えてください（例: 公式のチャンネルID）
+    $channelId = 'UCT16mw3e7Lm8DZzjnRfealg';
 
-    try {
-        $upcomingStreams = $youtubeService->getUpcomingStreams($channelId);
+    $videos = $youtube->getUpcomingStreams($channelId);
 
-        return response()->json([
-            'status' => 'success',
-            'data' => $upcomingStreams,
-        ]);
-    } catch (\Exception $e) {
-        return response()->json([
-            'status' => 'error',
-            'message' => $e->getMessage(),
-        ], 500);
-    }
+    return view('live_schedule', ['videos' => $videos]);
 });
