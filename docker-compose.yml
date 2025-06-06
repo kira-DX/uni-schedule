@@ -3,11 +3,11 @@ version: '3.8'
 services:
   app:
     build:
-      context: ./laravel
+      context: ./
     container_name: laravel
     working_dir: /var/www
     volumes:
-      - ./laravel:/var/www
+      - ./:/var/www   # ← Laravelアプリが直下にある
     depends_on:
       - mysql
     restart: always
@@ -34,7 +34,7 @@ services:
     container_name: react_node
     working_dir: /app
     volumes:
-      - ./react:/app
+      - ./resources/js/frontend:/app   # ← Reactがどこにあるか明示的にする場合
     tty: true
 
   nginx:
@@ -44,7 +44,7 @@ services:
       - "80:80"
       - "443:443"
     volumes:
-      - ./laravel/public:/var/www/public
+      - ./public:/var/www/public
       - ./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf
       - ./docker/nginx/ssl:/etc/nginx/ssl
     depends_on:
