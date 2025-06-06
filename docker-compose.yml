@@ -34,8 +34,10 @@ services:
     container_name: react_node
     working_dir: /app
     volumes:
-      - ./resources/js/frontend:/app   # ← Reactがどこにあるか明示的にする場合
-    tty: true
+      - ./resources/js/frontend:/app
+      - ./public/react:/app/build
+    command: sh -c "npm install && npm run build"
+    restart: on-failure
 
   nginx:
     image: nginx:alpine
