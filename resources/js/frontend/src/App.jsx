@@ -1,9 +1,13 @@
-import './styles/App.scss';
+import React from 'react';
+import ArticleList from './components/ArticleList';
 
-export default function App() {
+function App() {
   return (
-    <div className="container">
-      <h1>React + Sass</h1>
+    <div className="App">
+      <h1>Laravel + React 連携サンプル</h1>
+      <ArticleList />
     </div>
   );
 }
+
+export default App;

@@ -1,19 +1,10 @@
 <?php
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| API Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register API routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "api" middleware group. Make something great!
-|
-*/
-
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+Route::get('/articles', function () {
+    return response()->json([
+        ['id' => 1, 'title' => 'React連携テスト', 'content' => 'これはLaravelから取得したデータです'],
+        ['id' => 2, 'title' => '2件目の記事', 'content' => 'これもAPI経由で取得しています'],
+    ]);
 });
