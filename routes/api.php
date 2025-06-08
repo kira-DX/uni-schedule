@@ -1,10 +1,8 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
+use App\Models\Article;
+use Illuminate\Http\Request;
 
 Route::get('/articles', function () {
-    return [
-        ['id' => 1, 'title' => 'Hello World', 'body' => 'This is a test article.'],
-        ['id' => 2, 'title' => 'Another Article', 'body' => 'More sample content here.'],
-    ];
+    return Article::all();
 });
