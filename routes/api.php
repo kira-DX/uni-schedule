@@ -1,8 +1,5 @@
 <?php
 
-use App\Models\Article;
-use Illuminate\Http\Request;
+use App\Http\Controllers\YoutubeController;
 
-Route::get('/articles', function () {
-    return Article::all();
-});
+Route::get('/youtube/videos', [YoutubeController::class, 'getVideos']);
