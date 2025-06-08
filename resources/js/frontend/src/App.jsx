@@ -1,14 +1,10 @@
-import Counter from "./components/Counter";
-import Clock from "./components/Clock";
-import GitHubUserSearch from "./components/GitHubUserSearch";
+import React from 'react';
 
 function App() {
   return (
-    <div className="p-4">
-      <h1 className="text-3xl font-bold mb-6 text-center">🚀 React デモ</h1>
-      <Counter />
-      <Clock />
-      <GitHubUserSearch />
+    <div className="text-center mt-10">
+      <h1 className="text-3xl font-bold text-blue-600">🎬 YouTube配信スケジューラー</h1>
+      <p className="mt-4 text-lg">React側は正常に表示されています！</p>
     </div>
   );
 }
