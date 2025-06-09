@@ -12,8 +12,9 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('members', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+            $table->string('channel_id', 32)->primary();
+            $table->string('name', 100);
+            $table->timestamp('created_at')->useCurrent(); // UTC基準
         });
     }
 
