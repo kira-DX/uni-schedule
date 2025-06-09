@@ -1,5 +1,5 @@
 <?php
 
-use App\Http\Controllers\YoutubeController;
+use App\Http\Controllers\MemberController;
 
-Route::get('/youtube/videos', [YoutubeController::class, 'getVideos']);
+Route::get('/members', [MemberController::class, 'index']);
