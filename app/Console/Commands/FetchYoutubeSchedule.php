@@ -38,6 +38,7 @@ class FetchYoutubeSchedule extends Command
             ]);
 
             if ($response->failed()) {
+                $this->error("apikey = $apiKey");
                 $this->error("Failed to fetch data for channel: $channelId");
                 continue;
             }
