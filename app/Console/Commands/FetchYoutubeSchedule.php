@@ -22,6 +22,9 @@ class FetchYoutubeSchedule extends Command
         $startTime = Carbon::now()->subDays(2)->startOfDay()->toRfc3339String();
         $endTime = Carbon::tomorrow()->endOfDay()->toRfc3339String();
 
+        $this->info("startTime = $startTime");
+        $this->info("endTime = $endTime");
+
         foreach ($members as $member) {
             $channelId = $member->channel_id;
 
