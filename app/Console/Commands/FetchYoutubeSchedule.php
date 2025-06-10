@@ -22,16 +22,12 @@ class FetchYoutubeSchedule extends Command
         $startTime = Carbon::now()->subDays(2)->startOfDay()->toRfc3339String();
         $endTime = Carbon::tomorrow()->endOfDay()->toRfc3339String();
 
-        $this->info("startTime = $startTime");
-        $this->info("endTime = $endTime");
-
         foreach ($members as $member) {
             $channelId = $member->channel_id;
 
             $response = Http::get('https://www.googleapis.com/youtube/v3/search', [
                 'part' => 'snippet',
                 'channelId' => $channelId,
-                'eventType' => 'upcoming',
                 'type' => 'video',
                 'order' => 'date',
                 'publishedAfter' => $startTime,
