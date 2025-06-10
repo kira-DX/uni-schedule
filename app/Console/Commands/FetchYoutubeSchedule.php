@@ -60,8 +60,15 @@ class FetchYoutubeSchedule extends Command
                 $details = $detailsResponse->json('items')[0] ?? null;
                 if (!$details) continue;
 
-                $scheduledTime = $details['liveStreamingDetails']['scheduledStartTime'] ?? null;
-                $liveStatus = isset($details['liveStreamingDetails']['actualStartTime']) ? 'live' : 'upcoming';
+                // scheduled_timeはライブ予約時間 or 公開日時で設定する
+                $scheduledTime = $details['liveStreamingDetails']['scheduledStartTime'] ?? $details['snippet']['publishedAt'] ?? null;
+                if (isset($details['liveStreamingDetails']['actualStartTime'])) {
+                    $liveStatus = 'live';
+                } elseif (isset($details['liveStreamingDetails']['scheduledStartTime'])) {
+                    $liveStatus = 'upcoming';
+                } else {
+                    $liveStatus = 'none'; // ライブ配信ではない通常動画 or ショート
+                }
                 $type = $this->detectVideoType($details);
 
                 LiveStreamingData::updateOrCreate(
