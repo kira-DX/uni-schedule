@@ -1,10 +1,12 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
-import MemberList from './components/MemberList';
+import LiveStreamList from './components/LiveStreamList';
 
-const App = () => <MemberList />;
+function App() {
+  return (
+    <div className="App">
+      <LiveStreamList />
+    </div>
+  );
+}
 
 export default App;
-
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<App />);
