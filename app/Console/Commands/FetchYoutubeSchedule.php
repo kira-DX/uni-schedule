@@ -17,6 +17,11 @@ class FetchYoutubeSchedule extends Command
     {
         $apiKey = config('services.youtube.api_key'); // .env に YOUTUBE_API_KEY を設定
 
+        // ✅ 3日前以前（UTC）のデータを削除
+        $cutoffDate = Carbon::now('UTC')->subDays(3)->endOfDay();
+        $deletedCount = LiveStreamingData::where('scheduled_time', '<', $cutoffDate)->delete();
+        $this->info("Old data deleted (before {$cutoffDate->toDateTimeString()} UTC): {$deletedCount} records");
+
         $members = Member::all();
 
         $startTime = Carbon::now()->subDays(2)->startOfDay()->toRfc3339String();
