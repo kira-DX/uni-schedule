@@ -37,6 +37,7 @@ services:
     volumes:
       - ./resources/js/frontend:/app
       - ./public/react:/app/build
+    tty: true
     command: sh -c "npm install && npm run build"
     restart: on-failure
 
