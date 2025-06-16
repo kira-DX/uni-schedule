@@ -8,3 +8,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return file_get_contents(public_path('react/index.html'));
 });
+
+Route::get('/test', function () {
+    return file_get_contents(public_path('react-test/index.html'));
+});

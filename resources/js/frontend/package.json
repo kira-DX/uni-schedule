@@ -15,10 +15,10 @@
   },
   "homepage": ".",
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+  "dev": "vite",
+  "build": "vite build",
+  "build:main": "vite build --config vite.config.js",
+  "build:test": "vite build --config vite.config.test.js"
   },
   "eslintConfig": {
     "extends": [
