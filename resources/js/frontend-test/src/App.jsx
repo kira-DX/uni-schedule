@@ -1,10 +1,10 @@
 import React from 'react';
-import LiveStreamList from './components/LiveStreamList';
+import LiveStreamList from './components/Schedule';
 
 function App() {
   return (
     <div className="App">
-      <h1>✅ これは /test 用のReactページです！</h1>
+      <Schedule />
     </div>
   );
 }
