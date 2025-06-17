@@ -1,5 +1,5 @@
 import React from 'react';
-import './styles/Schedule.scss';
+import '../styles/Schedule.scss';
 
 const scheduleData = {
   'June 10': [
