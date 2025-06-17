@@ -1,0 +1,9 @@
+$main-color: #3498db;
+
+.container {
+  padding: 20px;
+  background-color: lighten($main-color, 30%);
+  h1 {
+    color: $main-color;
+  }
+}
