@@ -1,5 +1,5 @@
 import React from 'react';
-import LiveStreamList from './components/Schedule';
+import Schedule from './components/Schedule';
 
 function App() {
   return (
