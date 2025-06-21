@@ -26,7 +26,7 @@ const Schedule = () => {
   return (
     <div className="schedule-wrapper">
       <header className="schedule-header">
-        <h1><span role="img" aria-label="earth">🌏</span> UniVIRTUAL <span className="light">Schedule (unofficial)</span></h1>
+        <h1><span role="img" aria-label="earth">🌏</span> UniVIRTUAL <span className="light">Schedule (非公開)</span></h1>
       </header>
 
       <div className="schedule-container">

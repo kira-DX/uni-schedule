@@ -3,10 +3,13 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Models\LiveStreamingData;
+use Carbon\Carbon;
 
 Route::get('/live-streams', function () {
-    // UTCからJST（+9時間）に変換してソートするクエリビルダー例
-    // MySQLのCONVERT_TZ関数を利用
+    // 現在のJST時間を基準に前日〜翌日の範囲を取得
+    $start = Carbon::now('Asia/Tokyo')->subDay()->startOfDay()->setTimezone('UTC');
+    $end = Carbon::now('Asia/Tokyo')->addDay()->endOfDay()->setTimezone('UTC');
+
     $liveStreams = LiveStreamingData::select(
         'id',
         'title',
@@ -17,7 +20,8 @@ Route::get('/live-streams', function () {
         'live_status',
         'type'
     )
-    ->orderBy('scheduled_time_jst', 'asc')
+    ->whereBetween('scheduled_time', [$start, $end])
+    ->orderBy('scheduled_time', 'asc') // UTCで並べ替え
     ->get();
 
     return response()->json($liveStreams);
