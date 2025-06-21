@@ -43,7 +43,7 @@ const Schedule = () => {
   return (
     <div className="schedule-wrapper">
       <header className="schedule-header">
-        <h1><span role="img" aria-label="earth">🌏</span> UniVIRTUAL <span className="light">Schedule</span></h1>
+        <h1><span role="img" aria-label="earth">🌏💫</span> Uni<span className="yellow">VIRTUAL</span> <span className="light">Schedule(非公式)</span></h1>
       </header>
 
       <div className="schedule-container">
@@ -57,7 +57,7 @@ const Schedule = () => {
                     <img src={item.thumbnail} alt={item.title} />
                   </a>
                   <span className="time">{item.time}</span>
-                  <span className="title">{item.title}</span>
+                  <span className="title">{item.channel_name}</span>
                 </div>
               ))}
             </div>

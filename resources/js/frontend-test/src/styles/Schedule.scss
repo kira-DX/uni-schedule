@@ -20,6 +20,10 @@ $schedule-gray: #f9f9f9;
     font-weight: 600;
     color: $schedule-blue;
 
+    .yellow {
+      color: #ffc700;
+    }
+
     .light {
       font-weight: 300;
       color: #999;
@@ -40,12 +44,15 @@ $schedule-gray: #f9f9f9;
     font-weight: bold;
     color: $schedule-yellow;
     margin-bottom: 1rem;
+    background: #1d2b53;
+    padding: .3em .5em;
+    text-align: center;
   }
 
   .schedule-list {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   }
 
   .schedule-item {
