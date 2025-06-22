@@ -87,7 +87,7 @@ const Schedule = () => {
         ))}
       </div>
 
-      <footer className="text-center mt-5 mb-4">
+      <footer className="text-center mt-4 mb-5 d-block">
         <a href="/privacy-policy.html" target="_blank" rel="noopener noreferrer" className="text-secondary text-decoration-none">
           プライバシーポリシー
         </a>
