@@ -1,10 +1,13 @@
+body {
+  background: linear-gradient(to top right, #ffffff, #f0faff);
+}
+
 $schedule-yellow: #FFC700;
 $schedule-blue: #05B6E7;
 $schedule-white: #ffffff;
 $schedule-gray: #f9f9f9;
 
 .schedule-wrapper {
-  background: linear-gradient(to top right, #ffffff, #f0faff);
   min-height: 100vh;
   padding: 2rem;
   font-family: 'Helvetica Neue', sans-serif;
