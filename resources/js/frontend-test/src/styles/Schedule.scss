@@ -67,3 +67,11 @@ $schedule-gray: #f9f9f9;
     color: #333;
   }
 }
+
+// 5列カスタム（12 / 5 = 2.4）
+@media (min-width: 1200px) {
+  .col-xl-2-4 {
+    flex: 0 0 auto;
+    width: 20%; // 100% ÷ 5
+  }
+}

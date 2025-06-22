@@ -53,7 +53,7 @@ const Schedule = () => {
             <h2 className="text-center py-2 px-3">{date}</h2>
             <div className="row justify-content-start g-4">
               {items.map((item, index) => (
-                <div key={index} className="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
+                <div key={index} className="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2-4">
                   <div className="schedule-item h-100 d-flex flex-column">
                     <a
                       href={`https://www.youtube.com/watch?v=${item.videoId}`}
