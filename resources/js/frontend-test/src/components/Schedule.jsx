@@ -33,7 +33,8 @@ const Schedule = () => {
             time,
             title: item.title,
             thumbnail: item.thumbnail_url,
-            videoId: item.video_id
+            videoId: item.video_id,
+            channel_name: item.channel_name
           });
         });
         setScheduleData(grouped);
@@ -65,7 +66,7 @@ const Schedule = () => {
                       </div>
                     </a>
                     <span className="time mt-2">{item.time}</span>
-                    <span className="title">{item.title}</span>
+                    <span className="title">{item.channel_name}</span>
                   </div>
                 </div>
               ))}
