@@ -1,10 +1,10 @@
 import React from 'react';
-import LiveStreamList from './components/LiveStreamList';
+import Schedule from './components/Schedule';
 
 function App() {
   return (
     <div className="App">
-      <LiveStreamList />
+      <Schedule />
     </div>
   );
 }
