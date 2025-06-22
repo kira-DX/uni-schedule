@@ -71,6 +71,17 @@ $schedule-gray: #f9f9f9;
   }
 }
 
+.thumbnail-wrapper {
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
 // 5列カスタム（12 / 5 = 2.4）
 @media (min-width: 1200px) {
   .col-xl-2-4 {
