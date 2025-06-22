@@ -19,10 +19,10 @@ services:
     image: mysql:8.0
     container_name: mysql
     environment:
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: youtube_scheduler
-      MYSQL_USER: unicharisu
-      MYSQL_PASSWORD: unipass&11ne
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
       TZ: UTC
     volumes:
       - ./mysql_data:/var/lib/mysql
