@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../styles/Schedule.scss';
 
@@ -13,6 +13,8 @@ const formatDateLabel = (dateStr) => {
 
 const Schedule = () => {
   const [scheduleData, setScheduleData] = useState({});
+  const scrollRef = useRef(null);
+  const todayKey = formatDateLabel(new Date()); // 今日の日付キー（自動スクロール用）
 
   useEffect(() => {
     fetch('/api/live-streams')
@@ -37,7 +39,13 @@ const Schedule = () => {
             channel_name: item.channel_name
           });
         });
+
         setScheduleData(grouped);
+
+        // スクロールをトリガー（遅延実行で描画後に発火）
+        setTimeout(() => {
+          scrollRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 100);
       })
       .catch((err) => console.error('Failed to fetch schedule:', err));
   }, []);
@@ -45,12 +53,16 @@ const Schedule = () => {
   return (
     <div className="schedule-wrapper container">
       <header className="schedule-header text-center mb-4">
-        <h1><span role="img" aria-label="earth">🌏💫</span> Uni<span className="yellow">VIRTUAL</span> <span className="light">Schedule(非公式)</span></h1>
+        <h1><span role="img" aria-label="earth">🌏💫</span> Uni<span className="yellow">VIRTUAL</span><br className="d-sm-none" /><span className="light">Schedule(非公式)</span></h1>
       </header>
 
       <div className="schedule-container">
         {Object.entries(scheduleData).map(([date, items]) => (
-          <section key={date} className="schedule-day mb-5">
+          <section
+            key={date}
+            className="schedule-day mb-5"
+            ref={date === todayKey ? scrollRef : null} // 今日のセクションだけrefをセット
+          >
             <h2 className="text-center py-2 px-3">{date}</h2>
             <div className="row justify-content-start g-4">
               {items.map((item, index) => (
