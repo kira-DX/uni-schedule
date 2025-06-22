@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import '../styles/Schedule.scss';
 
 const formatDateLabel = (dateStr) => {
@@ -41,23 +42,29 @@ const Schedule = () => {
   }, []);
 
   return (
-    <div className="schedule-wrapper">
-      <header className="schedule-header">
+    <div className="schedule-wrapper container">
+      <header className="schedule-header text-center mb-4">
         <h1><span role="img" aria-label="earth">🌏💫</span> Uni<span className="yellow">VIRTUAL</span> <span className="light">Schedule(非公式)</span></h1>
       </header>
 
       <div className="schedule-container">
         {Object.entries(scheduleData).map(([date, items]) => (
-          <section key={date} className="schedule-day">
-            <h2>{date}</h2>
-            <div className="schedule-list">
+          <section key={date} className="schedule-day mb-5">
+            <h2 className="text-center py-2 px-3">{date}</h2>
+            <div className="row justify-content-start g-4">
               {items.map((item, index) => (
-                <div key={index} className="schedule-item">
-                  <a href={`https://www.youtube.com/watch?v=${item.videoId}`} target="_blank" rel="noopener noreferrer">
-                    <img src={item.thumbnail} alt={item.title} />
-                  </a>
-                  <span className="time">{item.time}</span>
-                  <span className="title">{item.channel_name}</span>
+                <div key={index} className="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
+                  <div className="schedule-item h-100 d-flex flex-column">
+                    <a
+                      href={`https://www.youtube.com/watch?v=${item.videoId}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <img src={item.thumbnail} alt={item.title} className="img-fluid rounded" />
+                    </a>
+                    <span className="time mt-2">{item.time}</span>
+                    <span className="title">{item.title}</span>
+                  </div>
                 </div>
               ))}
             </div>
