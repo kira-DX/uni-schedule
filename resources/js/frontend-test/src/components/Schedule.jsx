@@ -86,6 +86,12 @@ const Schedule = () => {
           </section>
         ))}
       </div>
+
+      <footer className="text-center mt-5 mb-4">
+        <a href="/privacy-policy.html" target="_blank" rel="noopener noreferrer" className="text-secondary text-decoration-none">
+          プライバシーポリシー
+        </a>
+      </footer>
     </div>
   );
 };
